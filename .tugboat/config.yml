@@ -57,6 +57,8 @@ services:
     commands:
       # The INIT command configures the webserver.
       init:
+        # Enable avif PHP extension.
+        - docker-php-ext-enable avif
         # Disable SSL for MySQL client connections
         - echo -e '[client]\nskip-ssl = true' > /etc/my.cnf
         # Disable SSL for Drush SQL commands
