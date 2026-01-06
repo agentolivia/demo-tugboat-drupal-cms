@@ -4,24 +4,9 @@ A demonstration Drupal CMS (v1) site featuring the legendary Tubgoat crew, creat
 
 **Live Demo:** [Coming soon - Tugboat preview link]
 
-## What's This?
+## What's this?
 
 This is my fully functional Drupal CMS site (running on Drupal 11) celebrating the best typo in tech: "Tubgoat" 🎉. I'll use this for Tugboat demos, docs writing, and presentations.
-
-# The GOAT Drupal CMS Site 🐐🛁
-
-A demonstration Drupal CMS (v1) site featuring the legendary Tubgoat crew, created for the Tugboat Quickstart guide.
-
-**Live Demo:** [Coming soon - Tugboat preview link]
-
-## What's This?
-
-This is a fully functional Drupal CMS 1.2.8 site (running on Drupal 11) showcasing:
-- Custom "Goat Profile" content type with specialized fields
-- The 5 founding members of the Tubgoat crew (yes, they're goats in bathtubs)
-- Taxonomy for goat breeds
-- Ready-to-deploy Tugboat configuration for instant preview environments
-- A celebration of the best typo in tech: "Tubgoat" 🎉
 
 ## Meet the Tubgoats
 
