@@ -8,8 +8,9 @@ services:
   # available MariaDB Tugboat images. Follow Supported Tags link for
   # currently supported tags.
   database:
-    # Drupal 11 requires MariaDB 10.6+
-    image: tugboatqa/mariadb:10.11
+    # Drupal 11 requires MariaDB 10.6+ but starting with MariaDB 11.4,
+    # MariaDB server enables TLS (SSL) automatically, which is required.
+    image: tugboatqa/mariadb:11.4
 
     # A set of commands to run while building this service
     commands:
