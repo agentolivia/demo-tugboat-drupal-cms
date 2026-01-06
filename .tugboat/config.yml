@@ -80,7 +80,7 @@ services:
         # Install/update packages managed by composer.
         - composer install --optimize-autoloader
 
-        # Set the tugboat-specific Drupal settings.
+        # Set the Tugboat-specific Drupal settings.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
 
         # Map your custom modules and themes into the Drupal structure.
@@ -108,6 +108,9 @@ services:
       build:
         # Install/update packages managed by composer.
         - composer install --optimize-autoloader
+
+        # Install site based on existing config
+        - vendor/bin/drush site:install --existing-config --yes --account-pass=admin
 
         # Install new configuration and database updates.
         - vendor/bin/drush cache:rebuild
