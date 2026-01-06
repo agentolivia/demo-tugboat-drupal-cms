@@ -1,10 +1,15 @@
 # Default Drupal 10 Tugboat starter config.
+# Adapted for Drupal 11
+# TODO: Update this URL when Drupal 11 tutorial is published.
 # https://docs.tugboatqa.com/starter-configs/tutorials/drupal-10/
 services:
   # Define the database service.
+  # See https://docs.tugboatqa.com/reference/tugboat-images/ for
+  # available MariaDB Tugboat images. Follow Supported Tags link for
+  # currently supported tags.
   database:
-    # Use the latest available 5.x version of MySQL
-    image: tugboatqa/mariadb:10.5
+    # Drupal 11 requires MariaDB 10.6+
+    image: tugboatqa/mariadb:10.11
 
     # A set of commands to run while building this service
     commands:
@@ -20,21 +25,30 @@ services:
       # skipping the init step, because the results of that step will
       # already be present.
       update:
-        # TODO: Copy a database dump from an external server. The public
+        # Copy a database dump from an external server. The public
         # SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use scp.
-        - scp user@example.com:database.sql.gz /tmp/database.sql.gz
-        - zcat /tmp/database.sql.gz | mysql tugboat
+        #- scp user@example.com:database.sql.gz /tmp/database.sql.gz
+        #- zcat /tmp/database.sql.gz | mysql tugboat
+        #- rm /tmp/database.sql.gz
+        #
+        # Local development, pre-launched sites without an external server yet.
+        # Assumes you have a database export in ./db-backups/database.sql.gz.
+        - cp "${TUGBOAT_ROOT}/db-backups/database.sql.gz" /tmp/database.sql.gz
+        - zcat "/tmp/database.sql.gz" | mysql tugboat
         - rm /tmp/database.sql.gz
 
       # Run any commands needed to prepare the site.  This is generally not needed
       # for database services.
       build: []
 
-  # Define the webserver service.
+  # Define the webserver service for PHP and Apache.
+    # See https://docs.tugboatqa.com/reference/tugboat-images/ for
+    # available PHP Tugboat images. Follow Supported Tags link for
+    # currently supported tags, which provide PHP + webserver combinations.
   webserver:
-    # This uses PHP 8.1.x with Apache: update to match your version of PHP.
-    image: tugboatqa/php:8.1-apache
+    # Drupal 11.x supports PHP 8.3. Certain minor versions support 8.4 and 8.5.
+    image: tugboatqa/php:8.3-apache
 
     # Set this as the default service. This does a few things
     #   1. Clones the git repository into the service container
@@ -85,7 +99,7 @@ services:
         # public SSH key found in the Tugboat Repository configuration must be
         # copied to the external server in order to use rsync over SSH.  More commonly
         # we use Stage File Proxy, which we enable in the `build` step below.
-        - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
+        # - rsync -av --delete user@example.com:/path/to/files/ "${DOCROOT}/sites/default/files/"
 
       # Commands that build the site. This is where you would add things
       # like feature reverts or any other drush commands required to
@@ -104,9 +118,9 @@ services:
 
         # If you are downloading your files from a remove server, you won't need
         # to enable Stage File Proxy.
-        - vendor/bin/drush pm:enable --yes stage_file_proxy
-        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
-        - vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
+        #- vendor/bin/drush pm:enable --yes stage_file_proxy
+        #- vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
+        #- vendor/bin/drush config:set --yes stage_file_proxy.settings origin_dir "sites/default/files"
 
         # One last cache rebuild.
         - vendor/bin/drush cache:rebuild
