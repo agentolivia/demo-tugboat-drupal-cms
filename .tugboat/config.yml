@@ -81,6 +81,9 @@ services:
         # for Tugboat database.
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
 
+        # Import database
+        - zcat "${TUGBOAT_ROOT}/db-backups/database.sql.gz" | vendor/bin/drush sql-cli
+
         # Map your custom modules and themes into the Drupal structure.
         #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
         #- ln -snf "${TUGBOAT_ROOT}/custom/modules" "${DOCROOT}/modules/custom"
@@ -107,8 +110,7 @@ services:
         # Install/update packages managed by composer.
         - composer install --optimize-autoloader
 
-        # Install new configuration and database updates.
-        - zcat "${TUGBOAT_ROOT}/db-backups/database.sql.gz" | vendor/bin/drush sql-cli
+        # Import config changes and run db updates.
         - vendor/bin/drush cache:rebuild
         - vendor/bin/drush config:import --debug
         - vendor/bin/drush updatedb --yes
