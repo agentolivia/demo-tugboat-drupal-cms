@@ -108,7 +108,7 @@ services:
         - composer install --optimize-autoloader
 
         # Install new configuration and database updates.
-        - vendor/bin/drush sql-cli < "${TUGBOAT_ROOT}/db-backups/database.sql.gz"
+        - zcat "${TUGBOAT_ROOT}/db-backups/database.sql.gz" | vendor/bin/drush sql-cli
         - vendor/bin/drush cache:rebuild
         - vendor/bin/drush config:import --debug
         - vendor/bin/drush updatedb --yes
