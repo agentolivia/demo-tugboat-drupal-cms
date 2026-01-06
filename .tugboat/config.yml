@@ -109,13 +109,15 @@ services:
       build:
         # Install/update packages managed by composer.
         - composer install --optimize-autoloader
+        - vendor/bin/drush --version
+        - vendor/bin/drush status
 
         # Install new configuration and database updates.
         - vendor/bin/drush cache:rebuild
         - vendor/bin/drush config:import --yes
         - vendor/bin/drush updatedb --yes
 
-        # If you are downloading your files from a remove server, you won't need
+        # If you are downloading your files from a remote server, you won't need
         # to enable Stage File Proxy.
         #- vendor/bin/drush pm:enable --yes stage_file_proxy
         #- vendor/bin/drush config:set --yes stage_file_proxy.settings origin "http://www.example.com"
