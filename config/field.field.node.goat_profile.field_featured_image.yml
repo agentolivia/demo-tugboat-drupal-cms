@@ -1,0 +1,29 @@
+uuid: 2f2efb9e-c605-404c-9970-7e2ab375615f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_image
+    - media.type.image
+    - node.type.goat_profile
+id: node.goat_profile.field_featured_image
+field_name: field_featured_image
+entity_type: node
+bundle: goat_profile
+label: 'Goat profile photo'
+description: 'Choose the profile photo for this goat.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

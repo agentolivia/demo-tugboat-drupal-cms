@@ -1,0 +1,21 @@
+uuid: e0cecb46-db00-4d5d-9c51-f936b8729a5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bathtub_preference
+    - node.type.goat_profile
+  module:
+    - options
+id: node.goat_profile.field_bathtub_preference
+field_name: field_bathtub_preference
+entity_type: node
+bundle: goat_profile
+label: 'Fave tub style'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

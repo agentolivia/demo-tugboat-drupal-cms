@@ -1,0 +1,19 @@
+uuid: feb5a021-d997-4f20-8e72-132d20d41804
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_catchphrase
+    - node.type.goat_profile
+id: node.goat_profile.field_catchphrase
+field_name: field_catchphrase
+entity_type: node
+bundle: goat_profile
+label: 'Special skills'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

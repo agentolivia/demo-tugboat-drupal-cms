@@ -1,0 +1,69 @@
+uuid: 8083ae04-f4c1-410f-b08b-b20a36d9e953
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.goat_profile.field_bathtub_preference
+    - field.field.node.goat_profile.field_breed
+    - field.field.node.goat_profile.field_catchphrase
+    - field.field.node.goat_profile.field_description
+    - field.field.node.goat_profile.field_favorite_activity
+    - field.field.node.goat_profile.field_featured_image
+    - node.type.goat_profile
+  module:
+    - options
+    - user
+id: node.goat_profile.default
+targetEntityType: node
+bundle: goat_profile
+mode: default
+content:
+  field_bathtub_preference:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_breed:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_catchphrase:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_favorite_activity:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_featured_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: hero
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  links: true

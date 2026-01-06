@@ -1,0 +1,19 @@
+uuid: bd140634-f184-4969-b278-e10f7ccd8d29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_favorite_activity
+    - node.type.goat_profile
+id: node.goat_profile.field_favorite_activity
+field_name: field_favorite_activity
+entity_type: node
+bundle: goat_profile
+label: 'Favorite activity'
+description: 'What the goat does in the tub (SFW!)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

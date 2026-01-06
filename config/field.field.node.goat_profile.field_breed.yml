@@ -1,0 +1,29 @@
+uuid: 52f19c35-5314-4507-99ba-58470cddecdb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_breed
+    - node.type.goat_profile
+    - taxonomy.vocabulary.goat_breeds
+id: node.goat_profile.field_breed
+field_name: field_breed
+entity_type: node
+bundle: goat_profile
+label: Breed
+description: "Select the goat's breed."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      goat_breeds: goat_breeds
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

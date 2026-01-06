@@ -1,0 +1,19 @@
+uuid: 55aa789b-e9ec-42f3-a348-011b0e336450
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.goat_profile
+id: node.goat_profile.field_description
+field_name: field_description
+entity_type: node
+bundle: goat_profile
+label: Bio
+description: 'Goat bio'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
