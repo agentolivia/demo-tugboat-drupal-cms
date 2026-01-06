@@ -26,9 +26,7 @@ $databases['default']['default'] = array (
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
-  'init_commands' => [
-    'isolation_level' => "READ COMMITTED",
-  ],
+  'isolation_level' => "READ COMMITTED",
 );
 
 /**
