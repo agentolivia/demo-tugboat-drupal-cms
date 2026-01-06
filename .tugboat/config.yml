@@ -34,7 +34,8 @@ services:
         #
         # Local development, pre-launched sites without an external server yet.
         # Assumes you have a database export in ./db-backups/database.sql.gz.
-        - zcat "${TUGBOAT_ROOT}/.tugboat/database.sql.gz" | mysql tugboat
+        - zcat "${TUGBOAT_ROOT}/.tugboat/database.sql.gz" | mysql -h database -u tugboat -ptugboat tugboat
+        - mysql -h database -u tugboat -ptugboat tugboat -e "SHOW TABLES;" | wc -l
 
       # Run any commands needed to prepare the site.  This is generally not needed
       # for database services.
