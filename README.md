@@ -93,6 +93,8 @@ Terms:
 
 ### Quick start
 
+**@TODO: These steps will be need to be updated when the Quickstart doc is drafted. The recommendation will to fork the repo (not clone) so that anyone can connect the repo to their Tugboat project and experiment with adding PRs and seeing live previews of them.**
+
 1. **Clone this repository:**
    ```bash
    git clone https://github.com/YOUR-USERNAME/demo-tugboat-drupal-cms.git
@@ -134,8 +136,6 @@ This demo is designed to showcase Tugboat's preview environment capabilities. On
 2. Connect it to your Tugboat account
 3. See instant preview environments for every pull request
 4. Share working previews with your team before merging
-
-Perfect for demonstrating how Tugboat helps teams test changes safely!
 
 ## Repository structure
 
