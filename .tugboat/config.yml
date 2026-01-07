@@ -84,7 +84,7 @@ services:
                 options:
                   extra: "--skip-ssl"
           EOF
-        # Add support for avif to GD library- apt-get update
+        # Add image file support for AVIF, JPEG, WEBP.
         - apt-get update
         - apt-get install -y libavif-dev libjpeg-dev libpng-dev libwebp-dev
         - docker-php-ext-configure gd --with-avif --with-jpeg --with-webp
