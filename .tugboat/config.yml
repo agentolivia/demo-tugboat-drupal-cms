@@ -57,10 +57,6 @@ services:
     commands:
       # The INIT command configures the webserver.
       init:
-        # Enable avif PHP extension.
-        #- docker-php-ext-enable gd avif
-        # See what is already enabled for php.
-        - php -i | grep AVIF
         # Disable SSL for MySQL client connections
         - echo -e '[client]\nskip-ssl = true' > /etc/my.cnf
         # Disable SSL for Drush SQL commands
@@ -88,6 +84,8 @@ services:
                 options:
                   extra: "--skip-ssl"
           EOF
+        # Add support for avif to GD library
+        - docker-php-ext-configure gd --with-avif
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
@@ -113,7 +111,7 @@ services:
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
 
         # Import database
-        - zcat "${TUGBOAT_ROOT}/db-backups/database.sql.gz" | vendor/bin/drush sql-cli
+        - zcat "${TUGBOAT_ROOT}/db-backups/database.sql.gz" | vendor/bin/drush sql:connect
 
         # Map your custom modules and themes into the Drupal structure.
         #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
@@ -143,7 +141,7 @@ services:
 
         # Import config changes and run db updates.
         - vendor/bin/drush cache:rebuild
-        - vendor/bin/drush config:import --debug
+        - vendor/bin/drush config:import --yes
         - vendor/bin/drush updatedb --yes
 
         # If you are downloading your files from a remote server, you won't need

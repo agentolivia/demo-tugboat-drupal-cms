@@ -4,6 +4,10 @@
 /web/core/
 /vendor/
 
+# Ignore Twig cache files.
+/web/sites/default/files/php/
+
+
 # Ignore contributed modules, themes, and libraries (managed by Composer)
 /web/modules/contrib/
 /web/themes/contrib/
