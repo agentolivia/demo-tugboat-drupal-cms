@@ -1,0 +1,21 @@
+uuid: e3c1e1d5-043a-440e-9d5d-39b86e7dab4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seo_analysis
+    - node.type.goat_profile
+  module:
+    - yoast_seo
+id: node.goat_profile.field_seo_analysis
+field_name: field_seo_analysis
+entity_type: node
+bundle: goat_profile
+label: 'SEO analysis'
+description: 'Pick the main keyword this page is about.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: yoast_seo
