@@ -114,7 +114,7 @@ services:
         - cp "${TUGBOAT_ROOT}/.tugboat/settings.local.php" "${DOCROOT}/sites/default/settings.local.php"
 
         # Import database
-        - zcat "${TUGBOAT_ROOT}/db-backups/database.sql.gz" | vendor/bin/drush sql:connect
+        - zcat "${TUGBOAT_ROOT}/db-backups/database.sql.gz" | vendor/bin/drush sql:cli
 
         # Map your custom modules and themes into the Drupal structure.
         #- ln -snf "${TUGBOAT_ROOT}/custom/themes" "${DOCROOT}/themes/custom"
