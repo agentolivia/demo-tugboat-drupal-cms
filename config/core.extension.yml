@@ -12,6 +12,7 @@ module:
   bpmn_io: 0
   breakpoint: 0
   captcha: 0
+  checklistapi: 0
   ckeditor5: 0
   coffee: 0
   config: 0
@@ -37,6 +38,7 @@ module:
   eca_user: 0
   editor: 0
   field: 0
+  field_group: 0
   field_ui: 0
   file: 0
   filter: 0
@@ -60,6 +62,9 @@ module:
   menu_link_attributes: 0
   menu_link_content: 0
   menu_ui: 0
+  metatag: 0
+  metatag_open_graph: 0
+  metatag_twitter_cards: 0
   mysql: 0
   navigation: 0
   node: 0
@@ -72,9 +77,13 @@ module:
   redirect: 0
   redirect_404: 0
   responsive_image: 0
+  robotstxt: 0
   sam: 0
   scheduler: 0
   scheduler_content_moderation_integration: 0
+  seo_checklist: 0
+  simple_sitemap: 0
+  sitemap: 0
   svg_image: 0
   symfony_mailer_lite: 0
   system: 0
@@ -84,11 +93,13 @@ module:
   telephone: 0
   text: 0
   token: 0
+  token_or: 0
   trash: 0
   update: 0
   user: 0
   views_ui: 0
   workflows: 0
+  yoast_seo: 0
   eca_form: 1
   pathauto: 1
   views: 10

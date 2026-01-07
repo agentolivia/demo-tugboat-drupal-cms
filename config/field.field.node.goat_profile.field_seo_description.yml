@@ -1,0 +1,19 @@
+uuid: 79be2a3d-783e-49c0-bb5f-bf6e4b6aea21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_seo_description
+    - node.type.goat_profile
+id: node.goat_profile.field_seo_description
+field_name: field_seo_description
+entity_type: node
+bundle: goat_profile
+label: 'SEO description'
+description: 'Write a description for search engines and social media sites.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

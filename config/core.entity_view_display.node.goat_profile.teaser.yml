@@ -10,6 +10,10 @@ dependencies:
     - field.field.node.goat_profile.field_description
     - field.field.node.goat_profile.field_favorite_activity
     - field.field.node.goat_profile.field_featured_image
+    - field.field.node.goat_profile.field_seo_analysis
+    - field.field.node.goat_profile.field_seo_description
+    - field.field.node.goat_profile.field_seo_image
+    - field.field.node.goat_profile.field_seo_title
     - node.type.goat_profile
   module:
     - user
@@ -44,3 +48,7 @@ hidden:
   field_breed: true
   field_catchphrase: true
   field_favorite_activity: true
+  field_seo_analysis: true
+  field_seo_description: true
+  field_seo_image: true
+  field_seo_title: true
