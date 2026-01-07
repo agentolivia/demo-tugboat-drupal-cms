@@ -86,6 +86,7 @@ services:
           EOF
         # Add support for avif to GD library
         - docker-php-ext-configure gd --with-avif
+        - docker-php-ext-install -j$(nproc) gd
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
         - a2enmod headers rewrite
