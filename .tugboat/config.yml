@@ -86,8 +86,8 @@ services:
           EOF
         # Add support for avif to GD library- apt-get update
         - apt-get update
-        - apt-get install -y libavif-dev
-        - docker-php-ext-configure gd --with-avif
+        - apt-get install -y libavif-dev libjpeg-dev libpng-dev libwebp-dev
+        - docker-php-ext-configure gd --with-avif --with-jpeg --with-webp
         - docker-php-ext-install -j$(nproc) gd
         # Install opcache and mod-rewrite.
         - docker-php-ext-install opcache
