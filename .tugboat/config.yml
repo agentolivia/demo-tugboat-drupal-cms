@@ -84,7 +84,8 @@ services:
                 options:
                   extra: "--skip-ssl"
           EOF
-        # Add support for avif to GD library
+        # Add support for avif to GD library- apt-get update
+        - apt-get install -y libavif-dev
         - docker-php-ext-configure gd --with-avif
         - docker-php-ext-install -j$(nproc) gd
         # Install opcache and mod-rewrite.
